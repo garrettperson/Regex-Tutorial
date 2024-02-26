@@ -1,6 +1,6 @@
-# Title (replace with your title)
+# Regex Tutorial: Matching an Email
 
-Introductory paragraph (replace this with your text)
+The following tutorial walks the user through using a regex (regular expression) that matches email addresses.
 
 ## Summary
 
