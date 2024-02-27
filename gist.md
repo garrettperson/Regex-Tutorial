@@ -4,7 +4,9 @@ The following tutorial walks the user through using a regex (regular expression)
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+A regular expression (regex) is "a sequence of characters that defines a search pattern, (The Coding Train, 2.1: Introduction to Regular Expressions, https://www.youtube.com/watch?v=7DG3kCDx53c)." They're mostly useful for defining a search pattern within a body of text. This tutorial will cover a regular expression used to search for email addresses within a body of text. This tutorial will cover the various components of the regex and what they mean. Here is the regex for matching email addresses:
+
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
 
 ## Table of Contents
 
@@ -23,6 +25,8 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ## Regex Components
 
 ### Anchors
+
+The ^ and $ characters are anchors. 
 
 ### Quantifiers
 
