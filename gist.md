@@ -26,7 +26,7 @@ A regular expression (regex) is "a sequence of characters that defines a search 
 
 ### Anchors
 
-The ^ and $ characters are anchors. 
+The ^ and $ characters are anchors. Anchors signify the beginning or ending of a string. The ^ anchor signifies that what follows it will be a string to be searched for. The $ anchor signifies that what precedes it is a string to be searched for, the $ anchor goes at the end of a string to be searched for. These anchors can search for literal values, e.g. "The man," whereby "the man" is excluded from the search because regular expressions are case sensitive, or the anchors can be used to search for more general values using bracket expressions.
 
 ### Quantifiers
 
