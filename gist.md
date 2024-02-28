@@ -30,6 +30,8 @@ The ^ and $ characters are anchors. Anchors signify the beginning or ending of a
 
 In the regex that is our example, the ^ anchor occurs at the very beginning of the expression and the $ anchor occurs at the very end of the expression.
 
+`/^` `([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})` `$/`
+
 ### Quantifiers
 
 ### OR Operator
