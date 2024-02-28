@@ -44,7 +44,7 @@ The + and {} characters are quantifiers. Quantifiers determine the limits of the
 `{ n, }` matches the regex pattern `n` or more times;
 `{ n, x }` matches the pattern at least `n` times and not more than `x` times
 
-In our example expression the numbers within the {} curly brackets determine the minimum and maximum number of characters being looked for; `{2,6}` means it matches between 2 and 6 characters. Specifically the {2,6} looks for the part of the email address that occurs after the `.` e.g. for sal@hotmail.com the {2,6} looks at the `.com` portion and checks to see that `com` is at least 2 but not more than 6 characters.
+In our example expression the numbers within the {} curly brackets determine the minimum and maximum number of characters being looked for; `{2,6}` means it matches between 2 and 6 characters. Specifically the {2,6} looks for the part of the email address that occurs after the `.` e.g. for gagmac@gmail.com the {2,6} looks at the `.com` portion and checks to see that `com` is at least 2 but not more than 6 characters.
 
 
 /^([a-z0-9_\.-] `+` )@([\da-z\.-] `+` )\.([a-z\.] `{2,6}` )$/
@@ -54,6 +54,22 @@ The `+` character checks the other parts of the email address to see that the sp
 ### OR Operator
 
 ### Character Classes
+
+A character class matches a single character out of a set of characters. Character classes allow one to specify a range or list of characters to be matched at a particular position in a string. The bracket expressions discussed in another section are character classes.
+
+[a-z] matches any lowercase letter
+[A-Z] matches any uppercase letter
+[0-9] matches any digit
+[A-Za-z0-9] matches any letter or any digit
+[A-Za-z0-9_-] matches any letter, any digit, a hyphen or an underscore
+`.` matches any character except for the newline character
+`\n` matches the newline character
+`\d` matches any digit (equivalent to [0-9])
+`\w` matches any alphanumeric character or an underscore (equivalent to [A-Za-z0-9_])
+`\s` matches a whitespace character, including tabs and line-breaks
+`\D` matches any non-digit character
+`\W` matches any non-alphanumeric character and excludes underscores
+`\S` matches any non-whitespace character
 
 ### Flags
 
@@ -65,29 +81,35 @@ In our example regex we can see the different subexpressions:
 
 /^ `([a-z0-9_\.-]+)` @ `([\da-z\.-]+)` \. `([a-z\.]{2,6})` $/
 
-`([a-z0-9_\.-]+)` matches the username of the email, e.g. "sal" for "sal@hotmail.com";
+`([a-z0-9_\.-]+)` matches the username of the email, e.g. "sal" for "gagmac@gmail.com";
 
-`([\da-z\.-]+)` matches the first part of the domain name for the email, e.g. "hotmail" for "sal@hotmail.com";
+`([\da-z\.-]+)` matches the first part of the domain name for the email, e.g. "hotmail" for "gagmac@gmail.com";
 
-`([a-z\.]{2,6})` matches the second part of the domain name and the final part of the email address, e.g. "com" for "sal@hotmail.com";
+`([a-z\.]{2,6})` matches the second part of the domain name and the final part of the email address, e.g. "com" for "gagmac@gmail.com";
 
 
 Grouping constructs can be either capturing or non-capturing. Capturing groups capture and remember parts of the matched string, allowing them to be referenced later or used in replacement operations. Non-capturing groups do not capture and remember parts of the matched string; they are used to group parts of the pattern together but do not contribute to the results of the match. Capturing groups are denoted by `()` while non-capturing groups are denoted by `(?:)`.
 
 ### Bracket Expressions
 
-Bracket expressions, also known as positive character groups, are defined by various characters within a pair of square brackets []. These characters within the brackets represent a range of characters to be matched. For example [a-z] searches for all lowercase letters, while [A-Z] searches for all uppercase letters. [0-9] searches for all numbers while [_-] searches for underscores and hyphens.
+Bracket expressions, also known as positive character groups, are defined by various characters within a pair of square brackets []. These characters within the brackets represent a range of characters to be matched. For example [a-z] searches for lowercase letters, while [A-Z] searches for uppercase letters. [0-9] searches for numbers while [_-] searches for underscores or hyphens.
 
 /^( `[a-z0-9_\.-]` +)@( `[\da-z\.-]` +)\.( `[a-z\.]` {2,6})$/
 
-[a-z0-9_\.-] matches all lowercase letters, numbers 0-9, "_", ".", and "-".
+[a-z0-9_\.-] matches lowercase letters, numbers 0-9, "_", ".", and "-".
 
-[\da-z\.-] matches numbers 0-9 (\d), all lowercase letters, "." and "-".
+[\da-z\.-] matches numbers 0-9 (\d), lowercase letters, "." and "-".
 
-[a-z\.] matches all lowercase letters and "."
+[a-z\.] matches lowercase letters and "."
 
 
 ### Greedy and Lazy Match
+
+Greedy and lazy quantifiers are used to control the matching behavior when applying quantifiers to a problem. Greedy quantifiers match as much of the input string as possible while lazy quantifiers match as little of the input string as possible. Greedy quantifiers are standard, denoted by `*`, `+`, `?`, or `{}` without any special characters altering their function. Lazy quantifiers on the other hand are denoted with a `?` after the quantifiers: `*?`, `+?`, `??`, or `{}?`. For an example of how lazy and greedy quantifiers work let's examine the string "aggg". If using a greedy quantifier `a.*g` the match will be "aggg," whereas using a lazy quantifier `a.*?g` the match will be "ag." 
+
+In the example of our regex, all the quantifiers are greedy.
+
+/^([a-z0-9_\.-] `+` )@([\da-z\.-] `+` )\.([a-z\.] `{2,6}` )$/
 
 ### Boundaries
 
