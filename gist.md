@@ -37,11 +37,11 @@ In the regex that is our example, the ^ anchor occurs at the very beginning of t
 
 The + and {} characters are quantifiers. Quantifiers determine the limits of the string or section of the string that the regular expression matches. 
 
-`+` matches the regex pattern one or more times
-`*` matches the regex pattern zero or more times
-`?` matches the regex pattern zero or one time
-`{ n }` matches the regex pattern `n` times
-`{ n, }` matches the regex pattern `n` or more times
+`+` matches the regex pattern one or more times;
+`*` matches the regex pattern zero or more times;
+`?` matches the regex pattern zero or one time;
+`{ n }` matches the regex pattern `n` times;
+`{ n, }` matches the regex pattern `n` or more times;
 `{ n, x }` matches the pattern at least `n` times and not more than `x` times
 
 In our example expression the numbers within the {} curly brackets determine the minimum and maximum number of characters being looked for; `{2,6}` means it matches between 2 and 6 characters. Specifically the {2,6} looks for the part of the email address that occurs after the `.` e.g. for sal@hotmail.com the {2,6} looks at the `.com` portion and checks to see that `com` is at least 2 but not more than 6 characters.
@@ -58,6 +58,14 @@ The `+` character checks the other parts of the email address to see that the sp
 ### Flags
 
 ### Grouping and Capturing
+
+Grouping constructs allow one to group together different parts of a regex so that it is easier to read and understand. The most common way for a section of a regular expression to be grouped is using parentheses to form subexpressions.
+
+In our example regex we can see the different subexpressions:
+
+/^ `([a-z0-9_\.-]+)` @ `([\da-z\.-]+)` \. `([a-z\.]{2,6})` $/
+
+Grouping constructs can be either capturing or non-capturing. Capturing groups capture and remember parts of the matched string, allowing them to be referenced later or used in replacement operations. Non-capturing groups do not capture and remember parts of the matched string; they are used to group parts of the pattern together but do not contribute to the results of the match. Capturing groups are denoted by `()` while non-capturing groups are denoted by `(?:)`.
 
 ### Bracket Expressions
 
