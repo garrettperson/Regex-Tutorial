@@ -65,6 +65,13 @@ In our example regex we can see the different subexpressions:
 
 /^ `([a-z0-9_\.-]+)` @ `([\da-z\.-]+)` \. `([a-z\.]{2,6})` $/
 
+`([a-z0-9_\.-]+)` matches the username of the email, e.g. "sal" for "sal@hotmail.com";
+
+`([\da-z\.-]+)` matches the first part of the domain name for the email, e.g. "hotmail" for "sal@hotmail.com";
+
+`([a-z\.]{2,6})` matches the second part of the domain name and the final part of the email address, e.g. "com" for "sal@hotmail.com";
+
+
 Grouping constructs can be either capturing or non-capturing. Capturing groups capture and remember parts of the matched string, allowing them to be referenced later or used in replacement operations. Non-capturing groups do not capture and remember parts of the matched string; they are used to group parts of the pattern together but do not contribute to the results of the match. Capturing groups are denoted by `()` while non-capturing groups are denoted by `(?:)`.
 
 ### Bracket Expressions
