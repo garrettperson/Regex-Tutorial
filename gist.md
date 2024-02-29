@@ -51,7 +51,7 @@ The `+` character checks the other parts of the email address to see that the sp
 
 ### OR Operator
 
-The `|` character is the OR operator. It allows one to select between 2 or more possibilities. For example, if a given expression is `(aid)` we could change it to `(a|i|d)` and the same results would be returned.
+The `|` character is the OR operator. It allows one to select between 2 or more possibilities. For example, if a given expression is `(a-b)` we could change it to `(a|b)` and the same results would be returned.
 
 ### Character Classes
 
@@ -70,6 +70,12 @@ A character class matches a single character out of a set of characters. Charact
 `\D` matches any non-digit character
 `\W` matches any non-alphanumeric character and excludes underscores
 `\S` matches any non-whitespace character
+
+In the example regex the \d character class is used in addition to bracket expression character classes:
+
+/^([a-z0-9_\.-]+)@([ `\d` a-z\.-]+)\.([a-z\.]{2,6})$/
+
+/^( `[a-z0-9_\.-]` +)@( `[\da-z\.-]` +)\.( `[a-z\.]` {2,6})$/
 
 ### Flags
 
