@@ -18,9 +18,7 @@ A regular expression (regex) is "a sequence of characters that defines a search 
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+
 
 ## Regex Components
 
@@ -53,6 +51,8 @@ The `+` character checks the other parts of the email address to see that the sp
 
 ### OR Operator
 
+The `|` character is the OR operator. It allows one to select between 2 or more possibilities. For example, if a given expression is `(aid)` we could change it to `(a|i|d)` and the same results would be returned.
+
 ### Character Classes
 
 A character class matches a single character out of a set of characters. Character classes allow one to specify a range or list of characters to be matched at a particular position in a string. The bracket expressions discussed in another section are character classes.
@@ -72,6 +72,12 @@ A character class matches a single character out of a set of characters. Charact
 `\S` matches any non-whitespace character
 
 ### Flags
+
+Flags occur at the end of the second slash of a regex. They set limits or additional functions for the regex. The three most common flags are:
+
+`g` for global search, wherein the regex is tested against all possible matches for the string;
+`i` for case-insensitive search wherein the uppercase letters are treated the same as lowercase letters in attempting a match for the string;
+`m` for multi-line search, wherein a multiple-line string is treated as multiple lines
 
 ### Grouping and Capturing
 
@@ -111,11 +117,6 @@ In the example of our regex, all the quantifiers are greedy.
 
 /^([a-z0-9_\.-] `+` )@([\da-z\.-] `+` )\.([a-z\.] `{2,6}` )$/
 
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
 
 ## Author
 
