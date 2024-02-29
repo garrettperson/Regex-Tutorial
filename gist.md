@@ -119,4 +119,4 @@ In the example of our regex, all the quantifiers are greedy.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+The author of this tutorial is a student in UCLA Extension's Coding Bootcamp. His github profile can be found at https://github.com/garrettperson
