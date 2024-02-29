@@ -81,9 +81,9 @@ In our example regex we can see the different subexpressions:
 
 /^ `([a-z0-9_\.-]+)` @ `([\da-z\.-]+)` \. `([a-z\.]{2,6})` $/
 
-`([a-z0-9_\.-]+)` matches the username of the email, e.g. "sal" for "gagmac@gmail.com";
+`([a-z0-9_\.-]+)` matches the username of the email, e.g. "gagmac" for "gagmac@gmail.com";
 
-`([\da-z\.-]+)` matches the first part of the domain name for the email, e.g. "hotmail" for "gagmac@gmail.com";
+`([\da-z\.-]+)` matches the first part of the domain name for the email, e.g. "gmail" for "gagmac@gmail.com";
 
 `([a-z\.]{2,6})` matches the second part of the domain name and the final part of the email address, e.g. "com" for "gagmac@gmail.com";
 
